@@ -1,0 +1,19 @@
+{
+  "name": "workers12",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "wrangler dev",
+    "deploy": "wrangler publish",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241112.0",
+    "@types/bun": "latest",
+    "better-sqlite3": "^11.5.0",
+    "wrangler": "^3.89.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

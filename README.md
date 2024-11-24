@@ -17,7 +17,7 @@ workers + d1 databse, example
 ### wrangler.toml, setting
 
 ```
-name = "workers12"
+name = "workers16"
 main = "src/index.ts"
 compatibility_date = "2024-01-01"
 node_compat = true
