@@ -13,6 +13,13 @@
 
 workers + d1 databse, example
 
+* claude.ai generate, example
+
+***
+### Related
+
+https://claude.ai
+
 ***
 ### wrangler.toml, setting
 
