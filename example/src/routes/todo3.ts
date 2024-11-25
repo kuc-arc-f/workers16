@@ -28,8 +28,8 @@ export async function todo3Router(
 {    
   const url = new URL(request.url);
   const path = url.pathname;
-console.log("url=", url);
-console.log("path=", path);
+//console.log("url=", url);
+//console.log("path=", path);
   // Create TODO
   if (request.method === 'POST' && path === '/api/todo3') {
     console.log("POST, /api/todo3");

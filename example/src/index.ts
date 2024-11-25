@@ -1,6 +1,7 @@
 import { todoRouter } from './routes/todo';
 import { todo2Router } from './routes/todo2';
 import { todo3Router } from './routes/todo3';
+import { todo4Router } from './routes/todo4';
 
 interface Env {
   DB: D1Database;
@@ -53,7 +54,14 @@ export default {
           status: res.status
         });
       }      
-       
+      res = await todo4Router(corsHeaders, request, env, Response);
+      if(res.ret) {
+        return new Response(res.data, {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          status: res.status
+        });
+      }
+
       return new Response('Not Found', {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         status: 404,

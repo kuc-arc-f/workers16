@@ -5,8 +5,8 @@ export async function todo2Router(
 {    
   const url = new URL(request.url);
   const path = url.pathname;
-console.log("url=", url);
-console.log("path=", path);
+//console.log("url=", url);
+//console.log("path=", path);
   // 検索エンドポイント
   if (path === '/api/todo2/search' && request.method === 'GET') {
     const searchTerm = url.searchParams.get('q') || '';
