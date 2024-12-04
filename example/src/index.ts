@@ -4,6 +4,7 @@ import { todo3Router } from './routes/todo3';
 import { todo4Router } from './routes/todo4';
 import { todo5Router } from './routes/todo5';
 import { todo11Router } from './routes/todo11';
+import { todo12Router } from './routes/todo12';
 
 interface Env {
   DB: D1Database;
@@ -34,8 +35,7 @@ export default {
     }  
     const url = new URL(request.url);
     const path = url.pathname;
-
-
+    //const idMatch = path.match(/\/api\/todos\/(\d+)/);
 
     try{
       let res = {}
@@ -78,6 +78,15 @@ export default {
       //todo11
       if (path.startsWith('/api/todo11')) {
         res = await todo11Router(corsHeaders, request, env, Response);
+        if(res.ret) {
+          return new Response(res.data, {
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+            status: res.status
+          });
+        }
+      }
+      if (path.startsWith('/api/todo12')) {
+        res = await todo12Router(corsHeaders, request, env, Response);
         if(res.ret) {
           return new Response(res.data, {
             headers: { ...corsHeaders, 'Content-Type': 'application/json' },
