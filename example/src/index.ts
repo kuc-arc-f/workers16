@@ -5,6 +5,7 @@ import { todo4Router } from './routes/todo4';
 import { todo5Router } from './routes/todo5';
 import { todo11Router } from './routes/todo11';
 import { todo12Router } from './routes/todo12';
+import { todo13Router } from './routes/todo13';
 
 interface Env {
   DB: D1Database;
@@ -35,8 +36,8 @@ export default {
     }  
     const url = new URL(request.url);
     const path = url.pathname;
-    //const idMatch = path.match(/\/api\/todos\/(\d+)/);
-
+//console.log("url=", url);
+console.log("path=", path);
     try{
       let res = {}
       res = await todoRouter(corsHeaders, request, env, Response);
@@ -94,17 +95,20 @@ export default {
           });
         }
       }
+      if (path.startsWith('/api/todo13')) {
+        res = await todo13Router(corsHeaders, request, env, Response);
+        if(res.ret) {
+          return new Response(res.data, {
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+            status: res.status
+          });
+        }
+      }
 
       return new Response('Not Found', {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         status: 404,
       });
-      /*
-      return new Response(res.data, {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        status: res.status
-      }); 
-      */
     } catch (error) {
       console.error('Error:', error);
       return new Response('Internal Server Error', {

@@ -116,5 +116,32 @@ CREATE TABLE todo12 (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+---todo13
+CREATE TABLE todo13 (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    content TEXT,
+    content_type TEXT,
+    is_public BOOLEAN DEFAULT false,
+    food_orange BOOLEAN DEFAULT false,
+    food_apple BOOLEAN DEFAULT false,
+    food_banana BOOLEAN DEFAULT false,
+    food_melon BOOLEAN DEFAULT false,
+    food_grape BOOLEAN DEFAULT false,
+    pub_date1 DATE,
+    pub_date2 DATE,
+    pub_date3 DATE,
+    pub_date4 DATE,
+    pub_date5 DATE,
+    pub_date6 DATE,
+    qty1 TEXT,
+    qty2 TEXT,
+    qty3 TEXT,
+    qty4 TEXT,
+    qty5 TEXT,
+    qty6 TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
 
