@@ -153,3 +153,19 @@ CREATE TABLE todo14 (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+---todo15
+CREATE TABLE todo15 (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    content TEXT,
+    public_type TEXT,
+    food_orange BOOLEAN,
+    food_apple BOOLEAN,
+    food_banana BOOLEAN,
+    pub_date1 TEXT,
+    pub_date2 TEXT,
+    pub_date3 TEXT,
+    qty1 TEXT,
+    qty2 TEXT,
+    qty3 TEXT
+);
