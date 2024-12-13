@@ -209,7 +209,7 @@ console.log("method=", method);
     } = body;
   
   
-    const stmt = db.prepare(`
+    const stmt = env.DB.prepare(`
         UPDATE todo17 SET
             title = ?, content = ?, content_type = ?, public_type = ?,
             food_orange = ?, food_apple = ?, food_banana = ?, food_melon = ?, food_grape = ?,
