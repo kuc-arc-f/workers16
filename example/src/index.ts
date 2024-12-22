@@ -10,6 +10,7 @@ import { todo14Router } from './routes/todo14';
 import { todo15Router } from './routes/todo15';
 import { todo16Router } from './routes/todo16';
 import { todo17Router } from './routes/todo17';
+import { todo21Router } from './routes/todo21';
 
 interface Env {
   DB: D1Database;
@@ -147,6 +148,16 @@ console.log("path=", path);
           });
         }
       }
+      if (path.startsWith('/api/todo21')) {
+        res = await todo21Router(corsHeaders, request, env, Response);
+        if(res.ret) {
+          return new Response(res.data, {
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+            status: res.status
+          });
+        }
+      }
+
 
       return new Response('Not Found', {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
