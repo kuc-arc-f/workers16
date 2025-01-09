@@ -11,6 +11,7 @@ import { todo15Router } from './routes/todo15';
 import { todo16Router } from './routes/todo16';
 import { todo17Router } from './routes/todo17';
 import { todo21Router } from './routes/todo21';
+import { tauriTodoRouter }   from './routes/tauriTodo';
 import { tauriTodo11Router } from './routes/tauriTodo11';
 import { tauriTodo14Router } from './routes/tauriTodo14';
 
@@ -59,6 +60,15 @@ console.log("path=", path);
 
       if (path.startsWith('/api/tauri_todo14')) {
         res = await tauriTodo14Router(corsHeaders, request, env, Response);
+        if(res.ret) {
+          return new Response(res.data, {
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+            status: res.status
+          });
+        }
+      }
+      if (path.startsWith('/api/tauri_todo')) {
+        res = await tauriTodoRouter(corsHeaders, request, env, Response);
         if(res.ret) {
           return new Response(res.data, {
             headers: { ...corsHeaders, 'Content-Type': 'application/json' },
